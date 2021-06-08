@@ -17,6 +17,7 @@
 	SELECT * FROM MEMBER;
 
  --%>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,5 +26,7 @@
 </head>
 <body>
 	<p><a href="01_insert.jsp">회원가입</a></p> <!-- <a href="" : ""안의 다른 문서로 이동 -->
+	<p><a href="03_delete.jsp">회원탈퇴</a></p>
+	<p><a href="07_list.jsp">회원정보확인</a></p>
 </body>
 </html>
