@@ -24,6 +24,6 @@
 <title>main</title>
 </head>
 <body>
-	<p><a href="01_insert.jsp">회원가입</a></p>
+	<p><a href="01_insert.jsp">회원가입</a></p> <!-- <a href="" : ""안의 다른 문서로 이동 -->
 </body>
 </html>

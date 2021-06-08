@@ -37,10 +37,10 @@
 		String passwd = request.getParameter("passwd");
 		String name = request.getParameter("name");
 		
-		// 데이터베이스를 연결하기 위한 객체
+		// 데이터베이스를 연결하기 위한 객체    *import 해야함.
 		Connection conn = null;
 		
-		// 쿼리문을 실행하기 위한 객체
+		// 쿼리문을 실행하기 위한 객체   *import 해야함.
 		PreparedStatement pstmt = null;
 		
 		try{
@@ -54,7 +54,7 @@
 			// forName 생성
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
-			// 데이터 베이스 연동
+			// 데이터 베이스 연동  *import 해야함.
 			conn = DriverManager.getConnection(jdbcUrl , dbId , dbPass);
 			
 			// 선처리문 쿼리 작성
