@@ -21,7 +21,7 @@
 	
 	<script>
 		alert("등록 되었습니다.");
-		loaction.href="04_bList.jsp";
+		location.href="04_bList.jsp";
 	</script>
 </body>
 </html>

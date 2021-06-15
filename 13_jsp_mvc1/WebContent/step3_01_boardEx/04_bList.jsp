@@ -24,7 +24,10 @@
 		%>
 				<tr>
 					<td><%=boardList.get(i).getNum()%></td>
-					<td><%=boardList.get(i).getSubject()%></td>
+					<td><a href="05_bInfo.jsp?num=<%=boardList.get(i).getNum()%>">
+					    <%=boardList.get(i).getSubject()%>
+					    </a>
+					</td>
 					<td><%=boardList.get(i).getWriter()%></td>
 					<td><%=boardList.get(i).getRegDate()%></td>
 					<td><%=boardList.get(i).getReadCount()%></td>

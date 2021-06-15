@@ -28,6 +28,6 @@
 
 <body>
 	<img src="../img/jsp.PNG" alt="jsp심볼" width="400px" height="200px"><br><br><br><br>
-	<input type="button" value="게시판 보기" onclick="location.href='04_bList1.jsp'">
+	<input type="button" value="게시판 보기" onclick="location.href='04_bList.jsp'">
 </body>
 </html>
