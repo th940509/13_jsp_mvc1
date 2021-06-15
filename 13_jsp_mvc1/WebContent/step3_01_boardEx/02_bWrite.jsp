@@ -8,9 +8,9 @@
 	<form action="03_bWritePro.jsp" method="post">
 		<h2>게시글 쓰기</h2>
 		<table style="width: 700px;" border="1">
-			<colgroup>
-				<col width="20%">
-				<col width="80%">
+			<colgroup> <!-- td(컬럼)에 적용 -->
+				<col width="20%"> <!-- 모든 행의 1열에 적용 -->
+				<col width="80%"> <!-- 모든 행의 2열의 적용 -->
 			</colgroup>
 			<tr>
 				<td>작성자</td>
