@@ -207,11 +207,11 @@ public class BoardDAO {
 			String sql = "";
 			if (searchKeyword.equals("total")) { // searchKeyword가 전체검색일 경우
 				if (searchWord.equals("")) { // 특정 키워드가 없을경우 (보통의 경우) 
-					sql = "SELECT COUNT(*) FROM BOARD";
+					sql = "SELECT COUNT(*) FROM BOARD"; // 전체 게시글 갯수를 조회함.
 				}
 				else {	// 특정 키워드가 있을 경우
-					sql = "SELECT COUNT(*) FROM BOARD ";
-					sql += "WHERE SUBJECT LIKE '%" + searchWord +"%' OR ";
+					sql = "SELECT COUNT(*) FROM BOARD "; // searchKeyword가 전체 검색일 경우 subject, writer의 이름에 searchWord의 키워드가 들어가야함.
+					sql += "WHERE SUBJECT LIKE '%" + searchWord +"%' OR "; // LIKE %--% 사용
 					sql += "WRITER LIKE '%" + searchWord +"%' "; 
 				}
 				
@@ -223,7 +223,7 @@ public class BoardDAO {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
-			if (rs.next()) {
+			if (rs.next()) { // rs.next가 존재할 경우, NUM을 totalBoardCount에 대입
 				totalBoardCount = rs.getInt(1);
 			} 
 			

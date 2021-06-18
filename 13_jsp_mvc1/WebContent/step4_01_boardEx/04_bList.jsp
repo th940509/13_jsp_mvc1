@@ -52,25 +52,25 @@
 			searchWord = "";
 		}
 		
-		String tempCnt = request.getParameter("onePageViewCount");		
+		String tempCnt = request.getParameter("onePageViewCount"); // onePageViewCount : 한페이지에 보고 싶은 게시물의 갯수
 		if (tempCnt == null) {
 			tempCnt = "10";	
 		}	
 		int onePageViewCount = Integer.parseInt(tempCnt);
 		
-		String tempPageNum  = request.getParameter("currentPageNumber");
+		String tempPageNum  = request.getParameter("currentPageNumber"); // currentPageNumber : 시작하는 페이지 숫자
 		if (tempPageNum == null){
 			tempPageNum = "1";
 		}
 		int currentPageNumber = Integer.parseInt(tempPageNum); 
 		
-		BoardDAO bdao = BoardDAO.getInstance();
-		int totalBoardCount = bdao.getAllCount(searchKeyword,searchWord);
+		BoardDAO bdao = BoardDAO.getInstance(); 
+		int totalBoardCount = bdao.getAllCount(searchKeyword,searchWord); // 전체 게시글 수
 		
 		
-		int startBoardIdx = (currentPageNumber -1) * onePageViewCount;
+		int startBoardIdx = (currentPageNumber -1) * onePageViewCount; 
 		ArrayList<BoardDTO> boardList = bdao.getSearchBoard(searchKeyword, searchWord, startBoardIdx, onePageViewCount);
-		
+		//전체 게시글 조회
 	%>
 	<div align="center" style="padding-top: 100px" >
 		<h2> 전체 게시글 보기 </h2>
@@ -133,13 +133,13 @@
 		
 	%>						
 			<tr align="center">
-				<td><%= bdto.getNum() %></td>
-				<td align="left">
+				<td><%= bdto.getNum() %></td>  <!-- 번호 -->
+				<td align="left"> <!-- 제목  / 왼쪽 정렬 -->
 					<%
-						if (bdto.getReStep() > 1) {
-							for (int j=0; j<(bdto.getReLevel()-1)*5; j++) {
+						if (bdto.getReStep() > 1) { // 게시물에 댓글이 1개 이상일 경우
+							for (int j=0; j<(bdto.getReLevel()-1)*5; j++) { 
 					%>
-								&nbsp;
+								&nbsp;  <!-- 공백 / 1번째 답글 &nbsp; 5번, 2번째 답글 10번 -->
 					<% 			
 							}
 					%>
@@ -149,9 +149,9 @@
 					%>
 					 <a href="05_bInfo.jsp?num=<%=bdto.getNum()%>"><%= bdto.getSubject() %></a>
 				</td>
-				<td> <%= bdto.getWriter() %> </td>
-				<td> <%= bdto.getRegDate() %> </td>
-				<td> <%= bdto.getReadCount() %> </td>
+				<td> <%= bdto.getWriter() %> </td> <!-- 작성자 -->
+				<td> <%= bdto.getRegDate() %> </td> <!-- 작성일 -->
+				<td> <%= bdto.getReadCount() %> </td> <!-- 조회수 -->
 			</tr>
 	<% 
 		}
@@ -162,7 +162,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="5" align="center">			
+				<td colspan="5" align="center">	<!-- colspan 태그: 열병합 -->		
 					<select id="searchKeyword" style="width: 150px; display: inline;">
 						<option 
 							<%
@@ -201,9 +201,9 @@
 	<% 
 		if (totalBoardCount > 0) {
 			
-			// 전체페이지 개수 = 전체게시판 수 / 한페이지에서 보여지는 글수
-			int addPage = totalBoardCount % onePageViewCount == 0 ? 0 : 1; // 나머지가 0이면 추가 x , 나머지가 0이 아니면 +1페이지
-			int totalPageCount = totalBoardCount / onePageViewCount + addPage;
+			//            전체페이지 개수 = 전체게시판 수 / 한페이지에서 보여지는 글수
+			int addPage = totalBoardCount % onePageViewCount == 0 ? 0 : 1; // 나머지가 0이면 추가 x , 나머지가 0이 아니면 +1페이지 --> 0이면 addPage=0, 0이 아니면 addPage=1
+			int totalPageCount = totalBoardCount / onePageViewCount + addPage; // 나눈 값(페이지 수) + addPage -> 페이지 수 구하기
 			
 			
 			// 시작페이지
@@ -243,7 +243,7 @@
 	%>
 			<ul>
 	<% 
-		if (startPage > 10) {
+			if (startPage > 10) {
 	%>
 				<li>
 					<a href="04_bList.jsp?currentPageNumber=<%= startPage - 10 %>&onePageViewCount=<%=onePageViewCount%>&searchKeyword=<%=searchKeyword%>&searchWord=<%=searchWord%>" >이전 </a>
