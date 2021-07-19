@@ -44,7 +44,5 @@ public class MemberDTO {
 		this.joindate = joindate;
 	}
 	
-	
-	
 
 }

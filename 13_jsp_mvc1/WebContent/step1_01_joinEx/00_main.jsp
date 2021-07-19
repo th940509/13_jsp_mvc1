@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- *분석 2021/06/09 19:35 ~ 21:40 -->
 <%--
 	
 	# 실습을 위한 데이터 베이스 구성
